@@ -4,19 +4,19 @@ on:
       changes:
         description: 'The detected changes'
         required: true
-        type: object
+        type: Object
       repository:
-        description: 'The repository changed'
-        required: true 
-        type: object 
-
+        description: 'The repository'
+        required: true
+        type: Object
+        
 jobs:
   echo:
     runs-on: ubuntu-latest
-    # if:  ${{ inputs.print_tags }} 
+    if:  ${{ inputs.changes.topics }} # Check if "topics" key is in changes
     steps:
-      - name: Print repository
-        run: echo ${{ inputs.repository }}
-      
-      - name: Print changes
-        run: echo ${{ inputs.changes }}
+      - name: Print repository name
+        run: echo ${{ inputs.repository.name }}
+        
+      - name: Print topics
+        run: echo ${{ inputs.repository.topics }}
