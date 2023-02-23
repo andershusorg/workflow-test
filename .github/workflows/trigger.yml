@@ -4,11 +4,11 @@ on:
       changes:
         description: 'The detected changes'
         required: true
-        type: Object
+        type: object
       repository:
         description: 'The repository'
         required: true
-        type: Object
+        type: object
         
 jobs:
   echo:
