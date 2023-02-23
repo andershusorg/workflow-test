@@ -1,0 +1,22 @@
+on:
+  workflow_dispatch:
+    inputs:
+      changes:
+        description: 'The detected changes'
+        required: true
+        type: object
+      repository:
+        description: 'The repository changed'
+        required: true 
+        type: object 
+
+jobs:
+  echo:
+    runs-on: ubuntu-latest
+    # if:  ${{ inputs.print_tags }} 
+    steps:
+      - name: Print repository
+        run: echo ${{ inputs.repository }}
+      
+      - name: Print changes
+        run: echo ${{ inputs.changes }}
