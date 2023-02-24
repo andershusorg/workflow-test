@@ -15,6 +15,9 @@ jobs:
     runs-on: ubuntu-latest
     # if:  ${{ inputs.changes.topics }} # Check if "topics" key is in changes
     steps:
+      - name: Print inputs
+        run: echo ${{ inputs }}
+        
       - name: Print repository name
         run: echo ${{ inputs.repository.name }}
         
