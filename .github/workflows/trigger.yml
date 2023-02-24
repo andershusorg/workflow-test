@@ -25,6 +25,9 @@ jobs:
         
       - name: Print event
         run: echo ${{ github.event }}
+      
+      - name: Print event repository name
+        run: echo ${{ github.event.repository.name }}
         
       - name: Print repository name
         run: echo ${{ inputs.repository.name }}
