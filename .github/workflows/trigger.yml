@@ -13,7 +13,7 @@ on:
 jobs:
   echo:
     runs-on: ubuntu-latest
-    if:  ${{ inputs.changes.topics }} # Check if "topics" key is in changes
+    # if:  ${{ inputs.changes.topics }} # Check if "topics" key is in changes
     steps:
       - name: Print repository name
         run: echo ${{ inputs.repository.name }}
