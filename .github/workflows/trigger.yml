@@ -1,6 +1,10 @@
 on:
   workflow_dispatch:
     inputs:
+      action:
+        description: "The trigger action"
+        required: true
+        type: string
       changes:
         description: 'The detected changes'
         required: true
@@ -12,6 +16,7 @@ on:
         
 jobs:
   echo:
+    if: ${{ inputs.action == 'edited' }}
     runs-on: ubuntu-latest
     # if:  ${{ inputs.changes.topics }} # Check if "topics" key is in changes
     steps:
