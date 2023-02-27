@@ -2,8 +2,8 @@ name: Webhook Actions trigger
 
 on:
   repository_dispatch:
-    types:
-      - repository
+    #types:
+    #  - repository
 
 jobs:
   echo:
