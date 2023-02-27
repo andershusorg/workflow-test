@@ -27,13 +27,13 @@ jobs:
     # if:  ${{ inputs.changes.topics }} # Check if "topics" key is in changes
     steps:
       - name: Print inputs
-        run: echo ${{ inputs }}
+        run: echo ${{ toJson(inputs) }}
         
       - name: Print event
-        run: echo ${{ fromJson(github.event) }}
+        run: echo ${{ toJson(github.event) }}
       
       - name: Print event repository name
-        run: echo ${{ github.event.inputs }}
+        run: echo ${{ github.event.inputs.repository.name }}
         
       - name: Print repository name
         run: echo ${{ inputs.repository.name }}
