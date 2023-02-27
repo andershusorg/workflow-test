@@ -30,7 +30,7 @@ jobs:
         run: echo ${{ inputs }}
         
       - name: Print event
-        run: echo ${{ fromJson(github.event) }}
+        run: echo ${{ toJson(github.event) }}
       
       - name: Print event repository name
         run: echo ${{ github.event.repository.name }}
