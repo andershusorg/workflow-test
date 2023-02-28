@@ -21,6 +21,8 @@ jobs:
      # - name: Print event
      #   run: echo ${{ toJson(github.event) }}
       - uses: actions/checkout@v3
+        with:
+          token: ${{ secrets.GH_ACTION }} 
       - uses: cachix/install-nix-action@v18
         with:
           nix_path: nixpkgs=channel:nixos-unstable
