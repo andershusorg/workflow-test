@@ -1,24 +1,25 @@
 on:
   workflow_dispatch:
     inputs:
-      flake_name:
-        description: "Name of flake"
-        required: true
-        type: string
       repository_full_name:
         description: 'Full name of repository'
         required: true
         type: string
+      flake_name:
+        description: "Name of flake (repository name without symbols)"
+        required: true
+        type: string
+      
         
 jobs:
   register:
     runs-on: ubuntu-latest
     steps:
-      - name: Print inputs
-        run: echo ${{ toJson(inputs) }}
+     # - name: Print inputs
+     #   run: echo ${{ toJson(inputs) }}
         
-      - name: Print event
-        run: echo ${{ toJson(github.event) }}
+     # - name: Print event
+     #   run: echo ${{ toJson(github.event) }}
         
       - name: Register
         uses: workflow/nix-shell-action@v3.2.0
