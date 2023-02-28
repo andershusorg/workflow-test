@@ -28,3 +28,5 @@ jobs:
         uses: workflow/nix-shell-action@v3.2.0
         with:
           script: nix registry add --registry ./flake-registry.json ${{ inputs.flake_name }} github:${{ inputs.repository_full_name }}
+      - name: Cat registry
+        run: cat ./flake-registry.json
