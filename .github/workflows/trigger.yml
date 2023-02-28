@@ -1,42 +1,26 @@
 on:
   workflow_dispatch:
     inputs:
-      action:
-        description: "The trigger action"
+      flake_name:
+        description: "Name of flake"
         required: true
         type: string
-      changes:
-        description: 'The detected changes'
+      repository_full_name:
+        description: 'Full name of repository'
         required: true
-        type: object
-      repository:
-        description: 'The repository'
-        required: true
-        type: object
-      organization:
-        required: true
-        type: object
-      sender:
-        required: true
-        type: object
+        type: string
         
 jobs:
-  echo:
-    if: ${{ inputs.action == 'edited' }}
+  register:
     runs-on: ubuntu-latest
-    # if:  ${{ inputs.changes.topics }} # Check if "topics" key is in changes
     steps:
       - name: Print inputs
         run: echo ${{ toJson(inputs) }}
         
       - name: Print event
         run: echo ${{ toJson(github.event) }}
-      
-      - name: Print event repository name
-        run: echo ${{ github.event.inputs.repository.name }}
         
-      - name: Print repository name
-        run: echo ${{ inputs.repository.name }}
-        
-      - name: Print topics
-        run: echo ${{ inputs.repository.topics }}
+      - name: Register
+        uses: workflow/nix-shell-action@v3.2.0
+        with:
+          script: nix registry add --registry ./flake-registry.json ${{ inputs.flake_name }} github:${{ inputs.repository_full_name }}
