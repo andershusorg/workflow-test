@@ -171,6 +171,17 @@
         "repo": "intraday.trades",
         "type": "github"
       }
+    },
+    {
+      "from": {
+        "id": "workflowtest",
+        "type": "indirect"
+      },
+      "to": {
+        "owner": "anderhusorg",
+        "repo": "workflow-test",
+        "type": "github"
+      }
     }
   ],
   "version": 2
