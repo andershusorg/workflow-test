@@ -30,3 +30,9 @@ jobs:
           script: nix registry add --registry ./flake-registry.json ${{ inputs.flake_name }} github:${{ inputs.repository_full_name }}
       - name: Cat registry
         run: cat ./flake-registry.json
+      - name: Commit update
+        run: |
+          git config --global user.name 'Flake bot'
+          git config --global user.email 'andershus@users.noreply.github.com'
+          git commit -am "Automated flake register"
+          git push
