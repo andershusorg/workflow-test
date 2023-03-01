@@ -1,3 +1,4 @@
+name: Register new flake
 on:
   workflow_dispatch:
     inputs:
