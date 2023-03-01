@@ -204,6 +204,17 @@
         "repo": "repo",
         "type": "github"
       }
+    },
+    {
+      "from": {
+        "id": "workflowtest3",
+        "type": "indirect"
+      },
+      "to": {
+        "owner": "anderhusorg",
+        "repo": "workflow-test",
+        "type": "github"
+      }
     }
   ],
   "version": 2
