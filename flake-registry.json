@@ -193,6 +193,17 @@
         "repo": "workflow-test",
         "type": "github"
       }
+    },
+    {
+      "from": {
+        "id": "repo",
+        "type": "indirect"
+      },
+      "to": {
+        "owner": "org",
+        "repo": "repo",
+        "type": "github"
+      }
     }
   ],
   "version": 2
