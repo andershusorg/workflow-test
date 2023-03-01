@@ -174,17 +174,6 @@
     },
     {
       "from": {
-        "id": "workflowtest",
-        "type": "indirect"
-      },
-      "to": {
-        "owner": "anderhusorg",
-        "repo": "workflow-test",
-        "type": "github"
-      }
-    },
-    {
-      "from": {
         "id": "workflowtest2",
         "type": "indirect"
       },
@@ -212,6 +201,17 @@
       },
       "to": {
         "owner": "anderhusorg",
+        "repo": "workflow-test",
+        "type": "github"
+      }
+    },
+    {
+      "from": {
+        "id": "workflowtest",
+        "type": "indirect"
+      },
+      "to": {
+        "owner": "andershusorg",
         "repo": "workflow-test",
         "type": "github"
       }
