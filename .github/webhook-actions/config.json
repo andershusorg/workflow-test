@@ -1,6 +1,30 @@
 {
     "events": {
         "repository_edited": {
+            "filter": {
+                "$or": [
+                    {
+                        "$and": [
+                            {
+                                "changes.topics.from": {
+                                    "$not": {"$elemMatch": {"$eq": "topic-1"}}
+                                }
+                            },
+                            {"repository.topics": {"$elemMatch": {"$eq": "topic-1"}}},
+                        ]
+                    },
+                    {
+                        "$and": [
+                            {
+                                "changes.topics.from": {
+                                    "$not": {"$elemMatch": {"$eq": "topic-2"}}
+                                }
+                            },
+                            {"repository.topics": {"$elemMatch": {"$eq": "topic-2"}}},
+                        ]
+                    },
+                ],
+            },
             "map": {"repository": "${{ repository.name }}"},
         }
     }
